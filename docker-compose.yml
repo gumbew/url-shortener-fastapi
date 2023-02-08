@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    image: "url-shortener:latest"
+    build:
+      context: ./app
+      dockerfile: backend.dockerfile
+    volumes:
+      - ./app:/src/
+    command: [ "sh", "scripts/start-server.sh" ]
+    ports:
+      - "8000:8000"
