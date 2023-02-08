@@ -2,6 +2,7 @@ from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from core.config import settings
+from url_shortener.models import ShortUrl
 
 
 async def init() -> None:
@@ -9,5 +10,5 @@ async def init() -> None:
 
     await init_beanie(
         database=getattr(client, settings.MONGO_DATABASE_NAME),
-        document_models=[]
+        document_models=[ShortUrl]
     )
